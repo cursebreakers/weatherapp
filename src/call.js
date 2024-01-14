@@ -9,7 +9,7 @@ const weatherData = {
 
 export async function callApi() {
     try {   
-        const response = await fetch('http://api.weatherapi.com/v1/current.json?key=6fd9b2d8ba534774b56192624241401&q=14727&aqi=no')
+        const response = await fetch('https://api.weatherapi.com/v1/current.json?key=6fd9b2d8ba534774b56192624241401&q=14727&aqi=no')
         const data = await response.json();
         
         weatherData.current = data.current;
