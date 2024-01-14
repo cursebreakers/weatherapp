@@ -10,6 +10,7 @@ export function updatePlatform(weatherData) {
 
     // Extracting relevant information
     const temperatureCelsius = weatherData.current.temp_f;
+    const feels = weatherData.current.feelslike_f;
     const precipitationInches = weatherData.current.precip_in;
     const dateTime = weatherData.current.last_updated;
     const cityName = weatherData.location.name;
@@ -25,6 +26,7 @@ export function updatePlatform(weatherData) {
     const data = `
       <h2>Weather Information</h2>
       <p>Temperature: ${temperatureCelsius}°F</p>
+      <p>Feels like: ${feels}°F</p>
       <p>Precipitation: ${precipitationInches} inches</p>
       <p>Wind direction: ${direction}</p>
       <p>Speed: ${speed}mph</p>
