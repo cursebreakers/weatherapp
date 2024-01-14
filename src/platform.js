@@ -1,5 +1,8 @@
 // DOM manipulator module
 
+import { initWeather } from ".";
+import { callApi, zipWeather } from "./call";
+
 export function updatePlatform(weatherData) {
     console.log('Updating weather data...')
 
@@ -15,7 +18,8 @@ export function updatePlatform(weatherData) {
     const speed = weatherData.current.wind_mph;
     const gust = weatherData.current.gust_mph;
 
-
+    const clear = document.createElement('button');
+    clear.innerHTML = 'Clear Data';
 
     // Create HTML content
     const data = `
@@ -32,5 +36,36 @@ export function updatePlatform(weatherData) {
 
     // Update the DOM
     content.innerHTML = data;
+    content.appendChild(clear);
+
+    clear.addEventListener('click', function() {
+      content.innerHTML = '';
+        initWeather();
+    });
+
     console.log('Data retrieved')
+}
+
+export function inputRender() {
+  console.log('Rendering input...')
+
+  const content = document.getElementById('content');
+
+  const input = document.createElement('div')
+  input.innerHTML = `  
+  <h3>Enter Your ZIP Code</h3>
+  <input id="zip" required>
+  `;
+
+  const request = document.createElement('button')
+  request.innerHTML = 'Get Data'
+
+  content.appendChild(input);
+  content.appendChild(request);
+
+  request.addEventListener('click', function() {
+
+    const zipCode = document.getElementById('zip').value;
+    zipWeather(zipCode);
+  });
 }
