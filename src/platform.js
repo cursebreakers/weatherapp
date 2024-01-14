@@ -24,7 +24,7 @@ export function updatePlatform(weatherData) {
     // Create HTML content
     const data = `
       <h2>Weather Information</h2>
-      <p>Temperature: ${temperatureCelsius}°C</p>
+      <p>Temperature: ${temperatureCelsius}°F</p>
       <p>Precipitation: ${precipitationInches} inches</p>
       <p>Wind direction: ${direction}</p>
       <p>Speed: ${speed}mph</p>
