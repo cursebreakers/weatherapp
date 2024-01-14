@@ -9,7 +9,7 @@ export function updatePlatform(weatherData) {
     const content = document.getElementById('content');
 
     // Extracting relevant information
-    const temperatureCelsius = weatherData.current.temp_c;
+    const temperatureCelsius = weatherData.current.temp_f;
     const precipitationInches = weatherData.current.precip_in;
     const dateTime = weatherData.current.last_updated;
     const cityName = weatherData.location.name;
