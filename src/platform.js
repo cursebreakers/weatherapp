@@ -4,7 +4,7 @@ import { initWeather } from ".";
 import { callApi, zipWeather } from "./call";
 
 export function updatePlatform(weatherData) {
-    console.log('Updating weather data...')
+    console.log('Updating...')
 
     const content = document.getElementById('content');
 
@@ -45,7 +45,7 @@ export function updatePlatform(weatherData) {
         initWeather();
     });
 
-    console.log('Data retrieved')
+    console.log('Data posted')
 }
 
 export function inputRender() {

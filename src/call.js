@@ -9,15 +9,23 @@ const weatherData = {
 
 export async function zipWeather(zipCode) {
     try {
+      const start = performance.now();
+
       const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=6fd9b2d8ba534774b56192624241401&q=${zipCode}&aqi=no`);
       const data = await response.json();
   
       // Update weatherData with API response
       weatherData.current = data.current;
       weatherData.location = data.location;
+
+      const end = performance.now();
+      const duration = end - start;
+
+      console.log(`API call took ${duration} milliseconds`);
+
   
-      console.log(weatherData); // Check if the weatherData is updated
-  
+      console.log('Data retrieved: ', weatherData);
+      
       // Call the updatePlatform function to update the DOM
       updatePlatform(weatherData);
     } catch (error) {
